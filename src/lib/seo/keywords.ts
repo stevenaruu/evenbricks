@@ -1,0 +1,16 @@
+export const SEO_KEYWORDS = [
+	"custom bricks indonesia",
+	"character bricks",
+	"custom building bricks",
+	"custom brick compatible",
+	"anime bricks",
+	"anime-style bricks",
+	"character-inspired bricks",
+	"themed character bricks",
+	"youtuber bricks",
+	"idol bricks",
+	"custom building blocks",
+	"precision brick parts",
+	"collectible brick figures",
+	"evenbricks indonesia",
+]
