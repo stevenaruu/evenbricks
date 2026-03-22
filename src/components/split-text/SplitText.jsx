@@ -45,7 +45,7 @@ const SplitText = ({
     () => {
       if (!ref.current || !text || !fontsLoaded) return;
       // Prevent re-animation if already completed
-      if (animationCompletedRef.current && text === el.dataset.lastText) return;
+      if (animationCompletedRef.current) return;
       const el = ref.current;
 
       if (el._rbsplitInstance) {
