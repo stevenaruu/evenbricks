@@ -4,6 +4,7 @@ import "./globals.css";
 import { SEO_KEYWORDS } from "@/lib/seo/keywords";
 import { cn } from "@/lib/utils";
 import { melonPop, poorStory } from "@/styles/fonts";
+import { SplashScreenProvider } from "@/lib/context/SplashScreenContext";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -58,7 +59,9 @@ export default function RootLayout({
         "font-sans"
       )}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <SplashScreenProvider>{children}</SplashScreenProvider>
+      </body>
     </html>
   );
 }

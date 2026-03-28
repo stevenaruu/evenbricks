@@ -1,5 +1,7 @@
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { useRouter } from 'next/navigation';
+import { useSplashScreen } from '@/lib/context/SplashScreenContext';
 import './StaggeredMenu.css';
 
 export interface StaggeredMenuItem {
@@ -50,6 +52,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   onMenuOpen,
   onMenuClose
 }: StaggeredMenuProps) => {
+  const router = useRouter();
+  const { setSplashSkipped } = useSplashScreen();
   const [open, setOpen] = useState(false);
   const openRef = useRef(false);
   const panelRef = useRef<HTMLDivElement | null>(null);
@@ -440,7 +444,21 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             {items && items.length ? (
               items.map((it, idx) => (
                 <li className="sm-panel-itemWrap" key={it.label + idx}>
-                  <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
+                  <a 
+                    className="sm-panel-item" 
+                    href={it.link} 
+                    aria-label={it.ariaLabel} 
+                    data-index={idx + 1}
+                    onClick={(e) => {
+                      // If clicking on home link from another page, skip splash screen
+                      if (it.link === '/' && window.location.pathname !== '/') {
+                        e.preventDefault();
+                        setSplashSkipped(true);
+                        router.push('/');
+                        closeMenu();
+                      }
+                    }}
+                  >
                     <span className="sm-panel-itemLabel">{it.label}</span>
                   </a>
                 </li>

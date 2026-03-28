@@ -4,13 +4,22 @@ import Particles from "@/backgrounds/particles/Particles";
 import CircularGallery from "@/components/circular-gallery/CircularGallery";
 import SplashScreen from "@/components/splash-screen/SplashScreen";
 import StaggeredMenu from "@/components/staggered-menu/StaggeredMenu";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { melonPop, poorStory } from "@/styles/fonts";
 import { PlaceholdersAndVanishInput } from "@/components/placeholders-and-vanish-input/placeholders-and-vanish-input";
+import { useSplashScreen } from "@/lib/context/SplashScreenContext";
 import Image from "next/image";
 
 export default function HomePage() {
 	const [showLanding, setShowLanding] = useState(false);
+	const { skipSplash, resetSplashState } = useSplashScreen();
+
+	useEffect(() => {
+		if (skipSplash) {
+			setShowLanding(true);
+			resetSplashState();
+		}
+	}, [skipSplash, resetSplashState]);
 
 	const menuItems = [
 		{ label: 'Home', ariaLabel: 'Go to home page', link: '/' },
