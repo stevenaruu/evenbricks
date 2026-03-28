@@ -23,9 +23,9 @@ export default function HomePage() {
 
 	const menuItems = [
 		{ label: 'Home', ariaLabel: 'Go to home page', link: '/' },
-		{ label: 'Collection', ariaLabel: 'View our collection', link: '/about' },
-		{ label: 'About Us', ariaLabel: 'Learn more about us', link: '/services' },
-		{ label: 'Policy', ariaLabel: 'View our policy', link: '/contact' }
+		{ label: 'Collection', ariaLabel: 'View our collection', link: '/collection' },
+		{ label: 'About Us', ariaLabel: 'Learn more about us', link: '/about' },
+		{ label: 'Policy', ariaLabel: 'View our policy', link: '/policy' }
 	];
 
 	const socialItems = [

@@ -10,14 +10,3 @@ export const metadata: Metadata = {
     type: 'website',
   },
 };
-
-export default function AboutPage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">About Page</h1>
-        <p className="text-lg text-gray-600">Design akan disesuaikan kemudian</p>
-      </div>
-    </div>
-  );
-}
